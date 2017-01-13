@@ -59,6 +59,29 @@ endif
 test_environment:
 	$(PYTHON_INTERPRETER) test_environment.py
 
+# Source code interpreter commands
+###########################################################
+# FEATURES																								#
+###########################################################
+
+features: add_template_python read_template_python
+
+protoc_middleman: src/features/template_features_req.proto
+	protoc --python_out=. src/features/template_features_req.proto
+	@touch protoc_middleman
+
+add_template_python: src/features/add_template.py protoc_middleman
+	@echo "Writing shortcut script add_template_python..."
+	@echo '#! /bin/sh' > src/features/add_template_python
+	@echo './src/features/add_template.py "$$@"' >> src/features/add_template_python
+	@chmod +x src/features/add_template_python	
+
+read_template_python: src/features/read_template.py protoc_middleman
+	@echo "Writing shortcut script read_template_python..."
+	@echo '#! /bin/sh' > src/features/read_template_python
+	@echo './src/features/read_template.py "$$@"' >> src/features/read_template_python
+	@chmod +x src/features/read_template_python
+
 #################################################################################
 # PROJECT RULES                                                                 #
 #################################################################################
