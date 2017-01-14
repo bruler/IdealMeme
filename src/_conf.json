@@ -47,10 +47,10 @@
 		"headernetrevenue" : "headernetrevenue"
 	},
 	"templates" : {
-		"M_Helmets" : 1,
-		"M_Helmets_F" : 1,
-		"Online" : 1,
-		"Nxt_Thrty_Days" : 1,
-		"Lng_Time_No_See" : 1
+		"M_Helmets" : { "DEFAULT" },
+		"M_Helmets_F" : { "DEFAULT" },
+		"Online" : { "DEFAULT" },
+		"Nxt_Thrty_Days" : { "DEFAULT" },
+		"Lng_Time_No_See" : { "DEFAULT" }
 	}
 }
