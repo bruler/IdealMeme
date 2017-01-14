@@ -24,6 +24,8 @@ data: requirements
 ## Delete all compiled Python files
 clean:
 	find . -name "*.pyc" -exec rm {} \;
+	rm -f src/features/add_template_python src/features/read_template_python 
+	rm -f src/features/protoc_middleman src/features/template_features_req_pb2.py
 
 ## Lint using flake8
 lint:
@@ -65,10 +67,11 @@ test_environment:
 ###########################################################
 
 features: add_template_python read_template_python
+	python src/features/add_template.py
 
 protoc_middleman: src/features/template_features_req.proto
 	protoc --python_out=. src/features/template_features_req.proto
-	@touch protoc_middleman
+	@touch src/features/protoc_middleman
 
 add_template_python: src/features/add_template.py protoc_middleman
 	@echo "Writing shortcut script add_template_python..."
