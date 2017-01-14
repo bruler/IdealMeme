@@ -60,7 +60,6 @@ target/
 .env
 
 # Database
-*.csv
 *.db
 *.rdb
 
